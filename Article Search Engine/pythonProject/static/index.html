@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Search Engine</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 320px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 12px;
+            color: #34495e;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        input {
+            padding: 12px;
+            margin-top: 6px;
+            border: 1px solid #bdc3c7;
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            background-color: white;
+        }
+        input[type="submit"] {
+            margin-top: 24px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 14px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border-radius: 6px;
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Registration</h1>
+        <form id="registrationForm" action="/register" method="post" novalidate>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <div id="emailError" class="error-message">Please enter a valid email address</div>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="repeat_password">Repeat Password</label>
+            <input type="password" id="repeat_password" name="repeat_password" required>
+            <div id="passwordError" class="error-message">Passwords do not match</div>
+
+            <input type="submit" value="Register">
+
+        </form>
+    </div>
+
+    <script>
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var repeatPassword = document.getElementById('repeat_password').value;
+            var emailErrorElement = document.getElementById('emailError');
+            var passwordErrorElement = document.getElementById('passwordError');
+            var isValid = true;
+
+            if (!validateEmail(email)) {
+                event.preventDefault();
+                emailErrorElement.style.display = 'block';
+                isValid = false;
+            } else {
+                emailErrorElement.style.display = 'none';
+            }
+
+            if (password !== repeatPassword) {
+                event.preventDefault();
+                passwordErrorElement.style.display = 'block';
+                isValid = false;
+            } else {
+                passwordErrorElement.style.display = 'none';
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+
+        document.getElementById('email').addEventListener('input', function() {
+            var emailErrorElement = document.getElementById('emailError');
+            if (!validateEmail(this.value)) {
+                emailErrorElement.style.display = 'block';
+            } else {
+                emailErrorElement.style.display = 'none';
+            }
+        });
+
+        document.getElementById('repeat_password').addEventListener('input', function() {
+            var password = document.getElementById('password').value;
+            var repeatPassword = this.value;
+            var passwordErrorElement = document.getElementById('passwordError');
+
+            if (password !== repeatPassword) {
+                passwordErrorElement.style.display = 'block';
+            } else {
+                passwordErrorElement.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constitutional Articles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #121212; /* Dark background for night mode */
+            color: #E0E0E0; /* Light text color */
+        }
+        h1 {
+            text-align: center;
+            color: #F0F0F0; /* Slightly off-white for less strain on eyes */
+        }
+        .article {
+            background-color: #1E1E1E; /* Dark card background */
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4); /* Subtle shadow for depth */
+        }
+        .article h2 {
+            color: #BB86FC; /* Accent color for headings (light purple) */
+            margin-top: 0;
+        }
+        .article p {
+            color: #B0BEC5; /* Softer light gray for text */
+        }
+    </style>
+</head>
+<body>
+    <h1>Constitutional Articles</h1>
+    <div id="articles">
+        <!-- Articles will be added here by JavaScript -->
+    </div>
+
+    <script>
+        // Article data
+        const articles = [
+            {
+                title: "Article 1",
+                details: "Name and territory of the Union."
+            },
+            {
+                title: "Article 2",
+                details: "Admission or establishment of new States."
+            },
+            {
+                title: "Article 3",
+                details: "Formation of new States and alteration of areas, boundaries or names of existing States."
+            },
+            {
+                title: "Article 4",
+                details: "Laws made under articles 2 and 3 to provide for the amendment of the First and the Fourth Schedules and supplemental, incidental and consequential matters."
+            },
+            {
+                title: "Article 5",
+                details: "Citizenship at the commencement of the Constitution."
+            },
+            {
+                title: "Article 6",
+                details: "Rights of citizenship of certain persons who have migrated to India from Pakistan."
+            },
+            {
+                title: "Article 7",
+                details: "Rights of citizenship of certain migrants to Pakistan."
+            },
+            {
+                title: "Article 8",
+                details: "Rights of citizenship of certain persons of Indian origin residing outside India."
+            },
+            {
+                title: "Article 9",
+                details: "Persons voluntarily acquiring citizenship of a foreign State not to be citizens."
+            },
+            {
+                title: "Article 10",
+                details: "Continuance of the rights of citizenship."
+            },
+            {
+                title: "Article 11",
+                details: "Parliament to regulate the right of citizenship by law."
+            },
+            {
+                title: "Article 12",
+                details: "Definition."
+            },
+            {
+                title: "Article 13",
+                details: "Laws inconsistent with or in derogation of the fundamental rights."
+            },
+            {
+                title: "Article 14",
+                details: "Equality before law."
+            },
+            {
+                title: "Article 15",
+                details: "Prohibition of discrimination on grounds of religion, race, caste, sex or place of birth."
+            },
+            {
+                title: "Article 16",
+                details: "Equality of opportunity in matters of public employment."
+            },
+            {
+                title: "Article 17",
+                details: "Abolition of Untouchability."
+            },
+            {
+                title: "Article 18",
+                details: "Abolition of titles."
+            },
+            {
+                title: "Article 19",
+                details: "Protection of certain rights regarding freedom of speech, etc."
+            },
+            {
+                title: "Article 20",
+                details: "Protection in respect of conviction for offences."
+            },
+            {
+                title: "Article 21",
+                details: "Protection of life and personal liberty."
+            },
+            {
+                title: "Article 21A",
+                details: "Right to education."
+            },
+            {
+                title: "Article 22",
+                details: "Protection against arrest and detention in certain cases."
+            },
+            {
+                title: "Article 23",
+                details: "Prohibition of traffic in human beings and forced labour."
+            },
+            {
+                title: "Article 24",
+                details: "Prohibition of employment of children in factories, etc."
+            },
+            {
+                title: "Article 25",
+                details: "Freedom of conscience and free profession, practice and propagation of religion."
+            },
+            {
+                title: "Article 26",
+                details: "Freedom to manage religious affairs."
+            },
+            {
+                title: "Article 27",
+                details: "Freedom as to payment of taxes for promotion of any particular religion."
+            },
+            {
+                title: "Article 28",
+                details: "Freedom as to attendance at religious instruction or religious worship in certain educational institutions."
+            },
+            {
+                title: "Article 29",
+                details: "Protection of interests of minorities."
+            },
+            {
+                title: "Article 30",
+                details: "Right of minorities to establish and administer educational institutions."
+            },
+            {
+                title: "Article 31",
+                details: "[Repealed.]"
+            },
+            {
+                title: "Article 31A",
+                details: "Saving of Laws providing for the acquisition of estates, etc."
+            },
+            {
+                title: "Article 31B",
+                details: "Validation of certain Acts and Regulations."
+            },
+            {
+                title: "Article 31C",
+                details: "Saving of laws giving effect to certain directive principles."
+            },
+            {
+                title: "Article 31D",
+                details: "[Repealed.]"
+            },
+            {
+                title: "Article 32",
+                details: "Remedies for enforcement of rights conferred by this Part."
+            },
+            {
+                title: "Article 32A",
+                details: "[Repealed.]"
+            },
+            {
+                title: "Article 33",
+                details: "Power of Parliament to modify the rights conferred by this Part in their application to Forces, etc."
+            },
+            {
+                title: "Article 34",
+                details: "Restriction on rights conferred by this Part while martial law is in force in any area."
+            },
+            {
+                title: "Article 35",
+                details: "Legislation to give effect to the provisions of this Part."
+            },
+            {
+                title: "Article 36",
+                details: "Definition."
+            },
+            {
+                title: "Article 37",
+                details: "Application of the principles contained in this Part."
+            },
+            {
+                title: "Article 38",
+                details: "State to secure a social order for the promotion of the welfare of the people."
+            },
+            {
+                title: "Article 39",
+                details: "Certain principles of policy to be followed by the State."
+            },
+            {
+                title: "Article 39A",
+                details: "Equal justice and free legal aid."
+            },
+            {
+                title: "Article 40",
+                details: "The organisation of village panchayats."
+            },
+            {
+                title: "Article 41",
+                details: "Right to work, to education and to public assistance in certain cases."
+            },
+            {
+                title: "Article 42",
+                details: "Provision for just and humane conditions of work and maternity relief."
+            },
+            {
+                title: "Article 43",
+                details: "Living wage, etc., for workers."
+            },
+            {
+                title: "Article 43A",
+                details: "Participation of workers in the management of industries."
+            },
+            {
+                title: "Article 43B",
+                details: "Promotion of co-operative societies."
+            },
+            {
+                title: "Article 44",
+                details: "Uniform civil code for the citizens."
+            },
+            {
+                title: "Article 45",
+                details: "Provision for free and compulsory education for children."
+            },
+            {
+                title: "Article 46",
+                details: "Promotion of educational and economic interests of Scheduled Castes, Scheduled Tribes and other weaker sections."
+            },
+            {
+                title: "Article 47",
+                details: "Duty of the State to raise the level of nutrition and the standard of living and to improve public health."
+            },
+            {
+                title: "Article 48",
+                details: "The organisation of agriculture and animal husbandry."
+            },
+            {
+                title: "Article 48A",
+                details: "Protection and improvement of environment and safeguarding of forests and wildlife."
+            },
+            {
+                title: "Article 49",
+                details: "Protection of monuments and places and objects of national importance."
+            },
+            {
+                title: "Article 50",
+                details: "Separation of judiciary from the executive."
+            },
+            {
+                title: "Article 51",
+                details: "Promotion of international peace and security."
+            },
+            {
+                title: "Article 51A",
+                details: "Fundamental duties."
+            },
+            {
+                title: "Article 52",
+                details: "The President of India."
+            },
+            {
+                title: "Article 53",
+                details: "The executive power of the Union."
+            },
+            {
+                title: "Article 54",
+                details: "Election of President."
+            },
+            {
+                title: "Article 55",
+                details: "Manner of election of President."
+            },
+            {
+                title: "Article 56",
+                details: "Term of office of President."
+            },
+            {
+                title: "Article 57",
+                details: "Eligibility for re-election."
+            },
+            {
+                title: "Article 58",
+                details: "Qualifications for election as President."
+            },
+            {
+                title: "Article 59",
+                details: "Conditions of the President’s office."
+            },
+            {
+                title: "Article 60",
+                details: "Oath or affirmation by the President."
+            },
+            {
+                title: "Article 61",
+                details: "Procedure for impeachment of the President."
+            },
+            {
+                title: "Article 62",
+                details: "Time of holding the election to fill the vacancy in the office of President and the term of office of person elected to fill the casual vacancy."
+            },
+            {
+                title: "Article 63",
+                details: "The Vice-President of India."
+            },
+            {
+                title: "Article 64",
+                details: "The Vice-President to be ex officio Chairman of the Council of States."
+            },
+            {
+                title: "Article 65",
+                details: "The Vice-President to act as President or to discharge his functions during casual vacancies in the office, or during the absence, of President."
+            },
+            {
+                title: "Article 66",
+                details: "Election of Vice-President."
+            },
+            {
+                title: "Article 67",
+                details: "Term of office of Vice-President."
+            },
+            {
+                title: "Article 68",
+                details: "Time of holding the election to fill the vacancy in the office of Vice-President and the term of office of person elected to fill the casual vacancy."
+            },
+            {
+                title: "Article 69",
+                details: "Oath or affirmation by the Vice-President."
+            },
+            {
+                title: "Article 70",
+                details: "Discharge of President’s functions in other contingencies."
+            },
+            {
+                title: "Article 71",
+                details: "Matters relating to, or connected with, the election of a President or Vice-President."
+            },
+            {
+                title: "Article 72",
+                details: "Power of President to grant pardons, etc., and to suspend, remit or commute sentences in certain cases."
+            },
+            {
+                title: "Article 73",
+                details: "The extent of executive power of the Union."
+            },
+            {
+                title: "Article 74",
+                details: "Council of Ministers to aid and advise the President."
+            },
+            {
+                title: "Article 75",
+                details: "Other provisions as to Ministers."
+            },
+            {
+                title: "Article 76",
+                details: "Attorney-General for India."
+            },
+            {
+                title: "Article 77",
+                details: "Conduct of business of the Government of India."
+            },
+            {
+                title: "Article 78",
+                details: "Duties of Prime Minister as respects the furnishing of information to the President, etc."
+            },
+            {
+                title: "Article 79",
+                details: "Constitution of Parliament."
+            },
+            {
+                title: "Article 80",
+                details: "Composition of the Council of States."
+            },
+            {
+                title: "Article 81",
+                details: "Composition of the House of the People."
+            },
+            {
+                title: "Article 82",
+                details: "Readjustment after each census."
+            },
+            {
+                title: "Article 83",
+                details: "Duration of Houses of Parliament."
+            },
+            {
+                title: "Article 84",
+                details: "Qualification for membership of Parliament."
+            },
+            {
+                title: "Article 85",
+                details: "Sessions of Parliament, prorogation and dissolution."
+            },
+            {
+                title: "Article 86",
+                details: "Right of President to address and send messages to Houses."
+            },
+            {
+                title: "Article 87",
+                details: "Special address by the President."
+            },
+            {
+                title: "Article 88",
+                details: "Rights of Ministers and Attorney-General as respects Houses."
+            },
+            {
+                title: "Article 89",
+                details: "The Chairman and Deputy Chairman of the Council of States."
+            },
+            {
+                title: "Article 90",
+                details: "Vacation and resignation of, and removal from, the office of Deputy Chairman."
+            },
+            {
+                title: "Article 91",
+                details: "Power of the Deputy Chairman or other person to perform the duties of the office of, or to act as, Chairman."
+            },
+            {
+                title: "Article 92",
+                details: "The Chairman or the Deputy Chairman not to preside while a resolution for his removal from office is under consideration."
+            },
+            {
+                title: "Article 93",
+                details: "The Speaker and Deputy Speaker of the House of the People."
+            },
+            {
+                title: "Article 94",
+                details: "Vacation and resignation of, and removal from, the offices of Speaker and Deputy Speaker."
+            },
+            {
+                title: "Article 95",
+                details: "Power of the Deputy Speaker or other person to perform the duties of the office of, or to act as, Speaker."
+            },
+            {
+                title: "Article 96",
+                details: "The Speaker or the Deputy Speaker not to preside while a resolution for his removal from office is under consideration."
+            },
+            {
+                title: "Article 97",
+                details: "Salaries and allowances of the Chairman and Deputy Chairman and the Speaker and Deputy Speaker."
+            },
+            {
+                title: "Article 98",
+                details: "Secretariat of Parliament."
+            },
+            {
+                title: "Article 99",
+                details: "Oath or affirmation by members."
+            },
+            {
+                title: "Article 100",
+                details: "Voting in Houses, power of Houses to act notwithstanding vacancies and quorum."
+            },
+            {
+                title: "Article 101",
+                details: "Vacation of seats."
+            },
+            {
+                title: "Article 102",
+                details: "Disqualifications for membership."
+            },
+            {
+                title: "Article 103",
+                details: "Decision on questions as to disqualifications of members."
+            },
+            {
+                title: "Article 104",
+                details: "Penalty for sitting and voting before making oath or affirmation under article 99 or when not qualified or when disqualified."
+            },
+            {
+                title: "Article 105",
+                details: "Powers, privileges, etc., of the Houses of Parliament and of the members and committees thereof."
+            },
+            {
+                title: "Article 106",
+                details: "Salaries and allowances of members."
+            },
+            {
+                title: "Article 107",
+                details: "Provisions as to introduction and passing of Bills."
+            },
+                        {
+                title: "Article 108",
+                details: "Joint sitting of both Houses in certain cases."
+            },
+                        {
+                title: "Article 109",
+                details: "Special procedure in respect of Money Bills."
+            },
+                        {
+                title: "Article 110",
+                details: "Definition of “Money Bills”."
+            },
+                        {
+                title: "Article 111",
+                details: "Assent to Bills."
+            },
+                        {
+                title: "Article 112",
+                details: "Annual financial statement."
+            },
+                        {
+                title: "Article 113",
+                details: "Procedure in Parliament with respect to estimates."
+            },
+                        {
+                title: "Article 114",
+                details: "Appropriation Bills."
+            },
+                        {
+                title: "Article 115",
+                details: "Supplementary, additional or excess grants."
+            },
+                        {
+                title: "Article 116",
+                details: "Votes on account, votes of credit and exceptional grants."
+            },
+                        {
+                title: "Article 117",
+                details: "Special provisions as to financial Bills."
+            },
+                        {
+                title: "Article 118",
+                details: "Rules of procedure."
+            },
+                        {
+                title: "Article 119",
+                details: "Regulation by law of procedure in Parliament in relation to financial business."
+            },
+                        {
+                title: "Article 121",
+                details: "Restriction on discussion in Parliament."
+            },
+                        {
+                title: "Article 122",
+                details: "Courts not to inquire into proceedings of Parliament."
+            },
+                        {
+                title: "Article 123",
+                details: "Power of President to promulgate Ordinances during recess of Parliament."
+            },
+                        {
+                title: "Article 124",
+                details: "Establishment and constitution of Supreme Court."
+            },
+                        {
+                title: "Article 124A",
+                details: "National Judicial Appointments Commission. (Declared unconstitutional by the Supreme Court, however not repealed by the Parliament)"
+            },
+                        {
+                title: "Article 124B",
+                details: "Functions of Commission."
+            },
+                                    {
+                title: "Article 124C",
+                details: "Power of Parliament to make law."
+            },
+                                    {
+                title: "Article 125",
+                details: "Salaries, etc., of Judges."
+            },
+                                    {
+                title: "Article 126",
+                details: " Appointment of acting Chief Justice."
+            },
+                                    {
+                title: "Article 127",
+                details: "Appointment of ad hoc judges."
+            },
+                                    {
+                title: "Article 128",
+                details: "Attendance of retired Judges at sittings of the Supreme Court."
+            },
+                                    {
+                title: "Article 129",
+                details: "Supreme Court to be a court of record."
+            },
+                                    {
+                title: "Article 130",
+                details: "Seat of Supreme Court."
+            },
+                                    {
+                title: "Article 131",
+                details: "Original jurisdiction of the Supreme Court."
+            },
+                                    {
+                title: "Article 131A",
+                details: "[Repealed.]"
+            },
+                                    {
+                title: "Article 132",
+                details: "Appellate jurisdiction of Supreme Court in appeals from High Courts in certain cases."
+            },
+                                    {
+                title: "Article 133",
+                details: "Appellate jurisdiction of Supreme Court in appeals from High Courts in regard to Civil matters."
+            },
+                                    {
+                title: "Article 134",
+                details: "Appellate jurisdiction of Supreme Court in regard to criminal matters."
+            },
+                                    {
+                title: "Article 134A ",
+                details: "Certificate for appeal to the Supreme Court."
+            },
+                                    {
+                title: "Article 135",
+                details: "Jurisdiction and powers of the Federal Court under existing law to be exercisable by the Supreme Court."
+            },
+                                    {
+                title: "Article 136",
+                details: "Special leave to appeal by the Supreme Court."
+            },
+                                    {
+                title: "Article 137",
+                details: "Review of judgments or orders by the Supreme Court."
+            },
+                                    {
+                title: "Article 138",
+                details: "Enlargement of the jurisdiction of the Supreme Court."
+            },
+                                    {
+                title: "Article 139",
+                details: "Conferment on the Supreme Court of powers to issue certain writs."
+            },
+                                    {
+                title: "Article 139A",
+                details: "Transfer of certain cases."
+            },
+                                    {
+                title: "Article 140",
+                details: "Ancillary powers of Supreme Court"
+            },
+                                    {
+                title: "Article 141",
+                details: " Law declared by Supreme Court to be binding on all courts."
+            },
+                                    {
+                title: "Article 142",
+                details: "Enforcement of decrees and orders of Supreme Court and orders as to discovery, etc."
+            },
+                                    {
+                title: "Article 143",
+                details: "Power of President to consult Supreme Court."
+            },
+                                    {
+                title: "Article 144",
+                details: " Civil and judicial authorities to act in aid of the Supreme Court."
+            },
+                                    {
+                title: "Article 144A",
+                details: "[Repealed.]"
+            },
+                                    {
+                title: "Article 145",
+                details: " Rules of Court, etc."
+            },
+                                    {
+                title: "Article 146",
+                details: "Officers and servants and the expenses of the Supreme Court."
+            },
+                                    {
+                title: "Article 147",
+                details: "Interpretation."
+            },
+            {
+                title: "Article 148",
+                details: "Comptroller and Auditor-General of India."
+            },
+            {
+                title: "Article 149",
+                details: "Duties and powers of the Comptroller and Auditor-General."
+            },
+            {
+                title: "Article 150",
+                details: "Form of accounts of the Union and of the States."
+            },
+           {
+                title: "Article 151",
+                details: "Audit reports."
+            },
+            {
+                title: "Article 152",
+                details: "Definition."
+            },
+            {
+                title: "Article 153",
+                details: "Governors of States."
+            },
+            {
+                title: "Article 154",
+                details: "Executive power of State."
+            },
+            {
+                title: "Article 155",
+                details: "Appointment of Governor."
+            },
+            {
+                title: "Article 156",
+                details: "Term of office of Governor."
+            },
+            {
+                title: "Article 157",
+                details: "Qualifications for appointment as Governor."
+            },
+            {
+                title: "Article 158",
+                details: "Conditions of Governor’s office"
+            },
+            {
+                title: "Article 159",
+                details: "Oath or affirmation by the Governor."
+            },
+            {
+                title: "Article 160",
+                details: "Discharge of the functions of the Governor in certain contingencies."
+            },
+            {
+                title: "Article 161",
+                details: "Power of Governor to grant pardons, etc., and to suspend, remit or commute sentences in certain cases."
+            },
+            {
+                title: "Article 162",
+                details: "Extent of executive power of State."
+            },
+            {
+                title: "Article 163",
+                details: "Council of Ministers to aid and advise Governor."
+            },
+            {
+                title: "Article 164",
+                details: "Other provisions as to Ministers."
+            },
+            {
+                title: "Article 165",
+                details: "Advocate-General for the State."
+            },
+            {
+                title: "Article 166",
+                details: "Conduct of business of the Government of a State."
+            },
+            {
+                title: "Article 167",
+                details: "Duties of Chief Minister as respects the furnishing of information to Governor, etc."
+            },
+            {
+                title: "Article 168",
+                details: "Constitution of Legislatures in States."
+            },
+            {
+                title: "Article 169",
+                details: "Abolition or creation of Legislative Councils in States."
+            },
+            {
+                title: "Article 170",
+                details: "Composition of the Legislative Assemblies."
+            },
+            {
+                title: "Article 171",
+                details: "Composition of the Legislative Councils."
+            },
+            {
+                title: "Article 172",
+                details: "Duration of State Legislatures."
+            },
+            {
+                title: "Article 173",
+                details: "Qualification for membership of the State Legislature."
+            },
+            {
+                title: "Article 174",
+                details: "Sessions of the State Legislature, prorogation and dissolution."
+            },
+            {
+                title: "Article 175",
+                details: "Right of Governor to address and send messages to the House or Houses."
+            },
+            {
+                title: "Article 176",
+                details: "Special address by the Governor."
+            },
+            {
+                title: "Article 177",
+                details: "Rights of Ministers and Advocate-General as respects the Houses."
+            },
+            {
+                title: "Article 178",
+                details: "The Speaker and Deputy Speaker of the Legislative Assembly."
+            },
+            {
+                title: "Article 179",
+                details: " Vacation and resignation of, and removal from, the offices of Speaker and Deputy Speaker."
+            },
+            {
+                title: "Article 180",
+                details: "Power of the Deputy Speaker or other person to perform the duties of the office of, or to act as, Speaker."
+            },
+            {
+                title: "Article 181",
+                details: " The Speaker or the Deputy Speaker not to preside while a resolution for his removal from office is under consideration."
+            },
+            {
+                title: "Article 182",
+                details: "The Chairman and Deputy Chairman of the Legislative Council."
+            },
+            {
+                title: "Article 183",
+                details: "Vacation and resignation of, and removal from, the offices of Chairman and Deputy Chairman."
+            },
+            {
+                title: "Article 184",
+                details: "Power of the Deputy Chairman or other person to perform the duties of the office of, or to act as, Chairman."
+            },
+            {
+                title: "Article 185",
+                details: "The Chairman or the Deputy Chairman not to preside while a resolution for his removal from office is under consideration."
+            },
+            {
+                title: "Article 186",
+                details: " Salaries and allowances of the Speaker and Deputy Speaker and the Chairman and Deputy Chairman."
+            },
+            {
+                title: "Article 187",
+                details: "Secretariat of State Legislature."
+            },
+            {
+                title: "Article 188",
+                details: "Oath or affirmation by members."
+            },
+            {
+                title: "Article 189",
+                details: "Voting in Houses, power of Houses to act notwithstanding vacancies and quorum."
+            },
+            {
+                title: "Article 190",
+                details: "Vacation of seats."
+            },
+            {
+                title: "Article 191",
+                details: "Disqualifications for membership."
+            },
+            {
+                title: "Article 192",
+                details: "Decision on questions as to disqualifications of members."
+            },
+            {
+                title: "Article 193",
+                details: "Penalty for sitting and voting before making oath or affirmation under article 188 or when not qualified or when disqualified."
+            },
+            {
+                title: "Article 194",
+                details: "Powers, privileges, etc., of the Houses of Legislatures and of the members and committees thereof."
+            },
+            {
+                title: "Article 195",
+                details: "Salaries and allowances of members."
+            },
+            {
+                title: "Article 196",
+                details: "Provisions as to introduction and passing of Bills."
+            },
+            {
+                title: "Article 197",
+                details: "Restriction on powers of Legislative Council as to Bills other than Money Bills"
+            },
+            {
+                title: "Article 198",
+                details: "Special procedure in respect of Money Bills."
+            },
+            {
+                title: "Article 199",
+                details: "Definition of “Money Bills”."
+            },
+            {
+                title: "Article 200",
+                details: "Assent to Bills."
+            },
+            {
+                title: "Article 201",
+                details: " Bills reserved for consideration."
+            },
+            {
+                title: "Article 202",
+                details: "Annual financial statement."
+            },
+            {
+                title: "Article 203",
+                details: "Procedure in Legislature with respect to estimates."
+            },
+            {
+                title: "Article 204",
+                details: "Appropriation Bills."
+            },
+            {
+                title: "Article 205",
+                details: "Supplementary, additional or excess grants."
+            },
+            {
+                title: "Article 206",
+                details: "Votes on account, votes of credit and exceptional grants"
+            },
+            {
+                title: "Article 207",
+                details: "Special provisions as to financial Bills."
+            },
+            {
+                title: "Article 208",
+                details: "Rules of procedure."
+            },
+            {
+                title: "Article 209",
+                details: "Regulation by law of procedure in the Legislature of the State in relation to financial business."
+            },
+
+            {
+                title: "Article 210",
+                details: "Language to be used in the Legislature."
+            },
+            {
+                title: "Article 211",
+                details: "Restriction on discussion in the Legislature."
+            },
+            {
+                title: "Article 212",
+                details: "Courts not to inquire into proceedings of the Legislature."
+            },
+            {
+                title: "Article 213",
+                details: "Power of Governor to promulgate Ordinances during recess of Legislature."
+            },
+            {
+                title: "Article 214",
+                details: "High Courts for States."
+            },
+            {
+                title: "Article 215",
+                details: "High Courts to be courts of record."
+            },
+            {
+                title: "Article 216",
+                details: "Constitution of High Courts."
+            },
+            {
+                title: "Article 217",
+                details: "Appointment and conditions of the office of a Judge of a High Court."
+            },
+            {
+                title: "Article 218",
+                details: "Application of certain provisions relating to Supreme Court to High Courts."
+            },
+            {
+                title: "Article 219",
+                details: "Oath or affirmation by Judges of High Courts."
+            },
+            {
+                title: "Article 220",
+                details: "Restriction on practice after being a permanent Judge."
+            },
+            {
+                title: "Article 221",
+                details: "Salaries, etc., of Judges."
+            },
+            {
+                title: "Article 222",
+                details: "Transfer of a Judge from one High Court to another."
+            },
+            {
+                title: "Article 223",
+                details: "Appointment of acting Chief Justice."
+            },
+            {
+                title: "Article 224",
+                details: "Appointment of additional and acting Judges."
+            },
+            {
+                title: "Article 224A",
+                details: "Appointment of retired Judges at sittings of High Courts."
+            },
+            {
+                title: "Article 225",
+                details: "Jurisdiction of existing High Courts."
+            },
+            {
+                title: "Article 226",
+                details: "Power of High Courts to issue certain writs."
+            },
+            {
+                title: "Article 226A",
+                details: "[Repealed.]"
+            },
+            {
+                title: "Article 227",
+                details: "Power of superintendence over all courts by the High Court."
+            },
+            {
+                title: "Article 228",
+                details: "Transfer of certain cases to High Court."
+            },
+            {
+                title: "Article 228A",
+                details: "[Repealed.]"
+            },
+            {
+                title: "Article 229",
+                details: "Officers and servants and the expenses of High Courts."
+            },
+            {
+                title: "Article 230",
+                details: "Extension of jurisdiction of High Courts to Union territories."
+            },
+            {
+                title: "Article 231",
+                details: "Establishment of a common High Court for two or more States."
+            },
+            {
+                title: "Article 233",
+                details: "Appointment of district judges."
+            },
+            {
+                title: "Article 233A",
+                details: "Validation of appointments of, and judgments, etc., delivered by, certain district judges."
+            },
+            {
+                title: "Article 234",
+                details: "Recruitment of persons other than district judges to the judicial service."
+            },
+            {
+                title: "Article 235",
+                details: "Control over subordinate courts."
+            },
+            {
+                title: "Article 236",
+                details: "Interpretation."
+            },
+            {
+                title: "Article 237",
+                details: "Application of the provisions of this Chapter to certain class or classes of magistrates."
+            },
+            {
+                title: "Article 238",
+                details: "[Repealed.]"
+            },
+            {
+                title: "Article 239",
+                details: "Administration of Union territories."
+            },
+            {
+                title: "Article 239A",
+                details: "Creation of local Legislatures or Council of Ministers or both for certain Union territories."
+            },
+            {
+                title: "Article 239AA",
+                details: "Special provisions with respect to Delhi."
+            },
+            {
+                title: "Article 239AB",
+                details: "Provision in case of failure of constitutional machinery."
+            },
+            {
+                title: "Article 239B",
+                details: "Power of the administrator to promulgate Ordinances during recess of the Legislature."
+            },
+            {
+                title: "Article 240",
+                details: "Power of the President to make regulations for certain Union territories."
+            },
+            {
+                title: "Article 241",
+                details: "High Courts for Union territories."
+            },
+            {
+                title: "Article 242",
+                details: "[Repealed.]"
+            },
+            {
+                title: "Article 243",
+                details: "Definitions."
+            },
+            {
+                title: "Article 243A",
+                details: "Gram Sabha."
+            },
+            {
+                title: "Article 243B",
+                details: "Constitution of Panchayats."
+            },
+            {
+                title: "Article 243C",
+                details: "Composition of Panchayats."
+            },
+            {
+                title: "Article 243D",
+                details: "Reservation of seats."
+            },
+            {
+                title: "Article 243E",
+                details: "Duration of Panchayats, etc."
+            },
+            {
+                title: "Article 243F",
+                details: "Disqualifications for membership."
+            },
+            {
+                title: "Article 243G",
+                details: "Powers, authority and responsibilities of Panchayats."
+            },
+            {
+                title: "Article 243H",
+                details: "Powers to impose taxes by, and Funds of, the Panchayats."
+            },
+            {
+                title: "Article 243I",
+                details: "Constitution of Finance Commission to review financial position."
+            },
+            {
+                title: "Article 243J",
+                details: "Audit of accounts of Panchayats."
+            },
+            {
+                title: "Article 243K",
+                details: "Elections to the Panchayats."
+            },
+            {
+                title: "Article 243L",
+                details: "Application to Union territories."
+            },
+            {
+                title: "Article 243M",
+                details: "Part not to apply to certain areas."
+            },
+            {
+                title: "Article 243N",
+                details: "Continuance of existing laws and Panchayats."
+            },
+            {
+                title: "Article 243O",
+                details: "Bar to interference by courts in electoral matters."
+            },
+            {
+                title: "Article 243P",
+                details: "Definitions."
+            },
+            {
+                title: "Article 243Q",
+                details: "Constitution of Municipalities."
+            },
+            {
+                title: "Article 243R",
+                details: "Composition of Municipalities."
+            },
+            {
+                title: "Article 243S",
+                details: "Constitution and composition of Wards Committees, etc."
+            },
+            {
+                title: "Article 243T",
+                details: "Reservation of seats."
+            },
+            {
+                title: "Article 243U",
+                details: "Duration of Municipalities, etc."
+            },
+            {
+                title: "Article 243V",
+                details: "Disqualifications for membership."
+            },
+            {
+                title: "Article 243W",
+                details: "Powers, authority and responsibilities of Municipalities, etc."
+            },
+            {
+                title: "Article 243X",
+                details: "Power to impose taxes by, and Funds of, the Municipalities."
+            },
+            {
+                title: "Article 243Y",
+                details: "Finance Commission."
+            },
+            {
+                title: "Article 243Z",
+                details: "Audit of accounts of Municipalities."
+            },
+            {
+                title: "Article 243ZA",
+                details: "Elections to the Municipalities."
+            },
+            {
+                title: "Article 243ZB",
+                details: "Application to Union territories."
+            },
+            {
+                title: "Article 243ZC",
+                details: "Part not to apply to certain areas."
+            },
+            {
+                title: "Article 243ZD",
+                details: "Committee for district planning."
+            },
+            {
+                title: "Article 243ZE",
+                details: "Committee for Metropolitan planning."
+            },
+            {
+                title: "Article 243ZF",
+                details: "Continuance of existing laws and Municipalities."
+            },
+            {
+                title: "Article 243ZG",
+                details: "Bar to interference by Courts in electoral matters."
+            },
+            {
+                title: "Article 243ZH",
+                details: "Definitions."
+            },
+            {
+                title: "Article 243ZI",
+                details: "Incorporation of co-operative societies."
+            },
+            {
+                title: "Article 243ZJ",
+                details: "Number and term of members of the board and its office bearers."
+            },
+            {
+                title: "Article 243ZK",
+                details: "Election of members of board."
+            },
+            {
+                title: "Article 243ZL",
+                details: "Supersession and suspension of the board and interim management."
+            },
+            {
+                title: "Article 243ZM",
+                details: "Audit of accounts of co-operative societies."
+            },
+            {
+                title: "Article 243ZN",
+                details: "Convening of general body meetings."
+            },
+            {
+                title: "Article 243ZO",
+                details: "Right of a member to get information."
+            },
+            {
+                title: "Article 243ZP",
+                details: "Returns."
+            },
+            {
+                title: "Article 243ZQ",
+                details: "Offences and penalties."
+            },
+            {
+                title: "Article 243ZR",
+                details: "Application to multi-state co-operative societies."
+            },
+            {
+                title: "Article 243ZS",
+                details: "Application to Union Territories."
+            },
+            {
+                title: "Article 243ZT",
+                details: "Continuance of existing laws."
+            },
+            {
+                title: "Article 244",
+                details: "Administration of Scheduled Areas and Tribal Areas."
+            },
+            {
+                title: "Article 244A",
+                details: "Formation of an autonomous State comprising certain tribal areas in Assam and creation of local Legislature or Council of Ministers or both therefor."
+            },
+            {
+                "title": "Article 245",
+                "details": "Extent of laws made by Parliament and by the Legislatures of States."
+            },
+            {
+                "title": "Article 246",
+                "details": "Subject-matter of laws made by Parliament and by the Legislatures of States."
+            },
+            {
+                "title": "Article 246A",
+                "details": "Special provision with respect to goods and services tax."
+            },
+            {
+                "title": "Article 247",
+                "details": "Power of Parliament to provide for the establishment of certain additional courts."
+            },
+            {
+                "title": "Article 248",
+                "details": "Residuary powers of legislation."
+            },
+            {
+                "title": "Article 249",
+                "details": "Power of Parliament to legislate with respect to a matter in the State List in the national interest."
+            },
+            {
+                "title": "Article 250",
+                "details": "Power of Parliament to legislate with respect to any matter in the State List if a Proclamation of Emergency is in operation."
+            },
+            {
+                "title": "Article 251",
+                "details": "Inconsistency between laws made by Parliament under articles 249 and 250 and laws made by the Legislatures of States."
+            },
+            {
+                "title": "Article 252",
+                "details": "Power of Parliament to legislate for two or more States by consent and adoption of such legislation by any other State."
+            },
+            {
+                "title": "Article 253",
+                "details": "Legislation for giving effect to international agreements."
+            },
+            {
+                "title": "Article 254",
+                "details": "Inconsistency between laws made by Parliament and laws made by the Legislatures of States."
+            },
+            {
+                "title": "Article 255",
+                "details": "Requirements as to recommendations and previous sanctions to be regarded as matters of procedure only."
+            },
+            {
+                "title": "Article 256",
+                "details": "Obligation of States and the Union."
+            },
+            {
+                "title": "Article 257",
+                "details": "Control of the Union over States in certain cases."
+            },
+            {
+                "title": "Article 258",
+                "details": "Power of the Union to confer powers, etc., on States in certain cases."
+            },
+            {
+                "title": "Article 258A",
+                "details": "Power of the States to entrust functions to the Union."
+            },
+            {
+                "title": "Article 260",
+                "details": "Jurisdiction of the Union in relation to territories outside India."
+            },
+            {
+                "title": "Article 261",
+                "details": "Public acts, records and judicial proceedings."
+            },
+            {
+                "title": "Article 262",
+                "details": "Adjudication of disputes relating to waters of inter-State rivers or river valleys."
+            },
+            {
+                "title": "Article 263",
+                "details": "Provisions with respect to an inter-State Council."
+            },
+            {
+                "title": "Article 264",
+                "details": "Interpretation."
+            },
+            {
+                "title": "Article 265",
+                "details": "Taxes not to be imposed save by authority of law."
+            },
+            {
+                "title": "Article 266",
+                "details": "Consolidated Funds and public accounts of India and of the States."
+            },
+            {
+                "title": "Article 267",
+                "details": "Contingency Fund."
+            },
+            {
+                "title": "Article 268",
+                "details": "Duties levied by the Union but collected and appropriated by the State."
+            },
+            {
+                "title": "Article 269",
+                "details": "Taxes levied and collected by the Union but assigned to the States."
+            },
+            {
+                "title": "Article 269A",
+                "details": "Levy and collection of goods and services tax in the course of inter-state trade or commerce."
+            },
+            {
+                "title": "Article 270",
+                "details": "Taxes levied and distributed between the Union and the States."
+            },
+            {
+                "title": "Article 271",
+                "details": "Surcharge on certain duties and taxes for purposes of the Union."
+            },
+            {
+                "title": "Article 273",
+                "details": "Grants in lieu of export duty on jute and jute products."
+            },
+            {
+                "title": "Article 274",
+                "details": "Prior recommendation of President required to Bills affecting taxation in which States are interested."
+            },
+            {
+                "title": "Article 275",
+                "details": "Grants from the Union to certain States."
+            },
+            {
+                "title": "Article 276",
+                "details": "Taxes on professions, trades, callings and employments."
+            },
+            {
+                "title": "Article 277",
+                "details": "Savings."
+            },
+            {
+                "title": "Article 279",
+                "details": "Calculation of 'net proceeds', etc."
+            },
+            {
+                "title": "Article 279A",
+                "details": "Goods and Services Tax Council."
+            },
+            {
+                "title": "Article 280",
+                "details": "Finance Commission."
+            },
+            {
+                "title": "Article 281",
+                "details": "Recommendations of the Finance Commission."
+            },
+            {
+                "title": "Article 282",
+                "details": "Expenditure defrayable by the Union or a State out of its revenues."
+            },
+            {
+                "title": "Article 283",
+                "details": "Custody, etc., of Consolidated Funds, Contingency Funds and moneys credited to the public accounts."
+            },
+            {
+                "title": "Article 284",
+                "details": "Custody of suitors' deposits and other moneys received by public servants and courts."
+            },
+            {
+                "title": "Article 285",
+                "details": "Exemption of property of the Union from State taxation."
+            },
+            {
+                "title": "Article 286",
+                "details": "Restrictions as to imposition of tax on the sale or purchase of goods."
+            },
+            {
+                "title": "Article 287",
+                "details": "Exemption from taxes on electricity."
+            },
+            {
+                "title": "Article 288",
+                "details": "Exemption from taxation by States in respect of water or electricity in certain cases."
+            },
+            {
+                "title": "Article 289",
+                "details": "Exemption of property and income of a State from Union taxation."
+            },
+            {
+                "title": "Article 290",
+                "details": "Adjustment in respect of certain expenses and pensions."
+            },
+            {
+                "title": "Article 290A",
+                "details": "Annual payment to certain Devaswom Funds."
+            },
+            {
+                "title": "Article 292",
+                "details": "Borrowing by the Government of India."
+            },
+            {
+                "title": "Article 293",
+                "details": "Borrowing by States."
+            },
+            {
+                "title": "Article 294",
+                "details": "Succession to property, assets, rights, liabilities and obligations in certain cases."
+            },
+            {
+                "title": "Article 295",
+                "details": "Succession to property, assets, rights, liabilities and obligations in other cases."
+            },
+            {
+                "title": "Article 296",
+                "details": "Property accruing by escheat or laps or as bona vacantia."
+            },
+            {
+                "title": "Article 297",
+                "details": "Things of value within territorial waters or continental shelf and resources of the exclusive economic zone to vest in the Union."
+            },
+            {
+                "title": "Article 298",
+                "details": "Power to carry on trade, etc."
+            },
+            {
+                "title": "Article 299",
+                "details": "Contracts."
+            },
+            {
+                "title": "Article 300",
+                "details": "Suits and proceedings."
+            },
+            {
+                "title": "Article 300A",
+                "details": "Persons not to be deprived of property save by authority of law."
+            },
+            {
+                "title": "Article 301",
+                "details": "Freedom of trade, commerce, and intercourse."
+            },
+            {
+                "title": "Article 302",
+                "details": "Power of Parliament to impose restrictions on trade, commerce, and intercourse."
+            },
+            {
+                "title": "Article 303",
+                "details": "Restrictions on the legislative powers of the Union and of the States with regard to trade and commerce."
+            },
+            {
+                "title": "Article 304",
+                "details": "Restrictions on trade, commerce, and intercourse among States."
+            },
+            {
+                "title": "Article 305",
+                "details": "Saving of existing laws and laws providing for State monopolies."
+            },
+            {
+                "title": "Article 307",
+                "details": "Appointment of authority for carrying out the purposes of articles 301 to 304."
+            },
+            {
+                "title": "Article 308",
+                "details": "Interpretation."
+            },
+            {
+                "title": "Article 309",
+                "details": "Recruitment and conditions of service of persons serving the Union or a State."
+            },
+            {
+                "title": "Article 310",
+                "details": "Tenure of office of persons serving the Union or a State."
+            },
+            {
+                "title": "Article 311",
+                "details": "Dismissal, removal or reduction in rank of persons employed in civil capacities under the Union or a State."
+            },
+            {
+                "title": "Article 312",
+                "details": "All-India Services."
+            },
+            {
+                "title": "Article 312A",
+                "details": "Power of Parliament to vary or revoke conditions of service of officers of certain services."
+            },
+            {
+                "title": "Article 313",
+                "details": "Transitional provisions."
+            },
+            {
+                "title": "Article 314",
+                "details": "Provision for protection of existing officers of certain services."
+            },
+            {
+                "title": "Article 315",
+                "details": "Public Service Commissions for the Union and for the States."
+            },
+            {
+                "title": "Article 316",
+                "details": "Appointment and term of office of members."
+            },
+            {
+                "title": "Article 317",
+                "details": "Removal and suspension of a member of a Public Service Commission."
+            },
+            {
+                "title": "Article 318",
+                "details": "Power to make regulations as to conditions of service of members and staff of the Commission."
+            },
+            {
+                "title": "Article 319",
+                "details": "Prohibition as to the holding of offices by members of Commission on ceasing to be such members."
+            },
+            {
+                "title": "Article 320",
+                "details": "Functions of Public Service Commissions."
+            },
+            {
+                "title": "Article 321",
+                "details": "Power to extend functions of Public Service Commissions."
+            },
+            {
+                "title": "Article 322",
+                "details": "Expenses of Public Service Commissions."
+            },
+            {
+                "title": "Article 323",
+                "details": "Reports of Public Service Commissions."
+            },
+            {
+                "title": "Article 323A",
+                "details": "Administrative tribunals."
+            },
+            {
+                "title": "Article 323B",
+                "details": "Tribunals for other matters."
+            },
+            {
+                "title": "Article 324",
+                "details": "Superintendence, direction and control of elections to be vested in an Election Commission."
+            },
+            {
+                "title": "Article 325",
+                "details": "No person to be ineligible for inclusion in, or to claim to be included in a special, electoral roll on grounds of religion, race, caste or sex."
+            },
+            {
+                "title": "Article 326",
+                "details": "Elections to the House of the People and to the Legislative Assemblies of States to be on the basis of adult suffrage."
+            },
+            {
+                "title": "Article 327",
+                "details": "Power of Parliament to make provision with respect to elections to Legislatures."
+            },
+            {
+                "title": "Article 328",
+                "details": "Power of Legislature of a State to make provision with respect to elections to such Legislature."
+            },
+            {
+                "title": "Article 329",
+                "details": "Bar to interference by courts in electoral matters."
+            },
+            {
+                "title": "Article 329A",
+                "details": "Special provision as to elections to Parliament in the case of Prime Minister and Speaker."
+            },
+            {
+                "title": "Article 330",
+                "details": "Reservation of seats for Scheduled Castes and Scheduled Tribes in the House of the People."
+            },
+            {
+                "title": "Article 331",
+                "details": "Representation of the Anglo-Indian community in the House of the People."
+            },
+            {
+                "title": "Article 332",
+                "details": "Reservation of seats for Scheduled Castes and Scheduled Tribes in the Legislative Assemblies of the States."
+            },
+            {
+                "title": "Article 333",
+                "details": "Representation of the Anglo-Indian community in the Legislative Assemblies of the States."
+            },
+            {
+                "title": "Article 334",
+                "details": "Reservation of seats and special representation to cease after certain period."
+            },
+            {
+                "title": "Article 335",
+                "details": "Claims of Scheduled Castes and Scheduled Tribes to services and posts."
+            },
+            {
+                "title": "Article 336",
+                "details": "Special provision for Anglo-Indian community in certain services."
+            },
+            {
+                "title": "Article 337",
+                "details": "Special provision with respect to educational grants for the benefit of Anglo-Indian community."
+            },
+            {
+                "title": "Article 338",
+                "details": "National Commission for Scheduled Castes."
+            },
+            {
+                "title": "Article 338A",
+                "details": "National Commission for Scheduled Tribes."
+            },
+            {
+                "title": "Article 339",
+                "details": "Control of the Union over the administration of Scheduled Areas and the welfare of Scheduled Tribes."
+            },
+            {
+                "title": "Article 340",
+                "details": "Appointment of a Commission to investigate the conditions of backward classes."
+            },
+            {
+                "title": "Article 341",
+                "details": "Scheduled Castes."
+            },
+            {
+                "title": "Article 342",
+                "details": "Scheduled Tribes."
+            },
+            {
+                "title": "Article 342A",
+                "details": "Socially and educationally backward classes."
+            },
+            {
+                "title": "Article 343",
+                "details": "Official language of the Union."
+            },
+            {
+                "title": "Article 344",
+                "details": "Commission and Committee of Parliament on official language."
+            },
+            {
+                "title": "Article 345",
+                "details": "Official language or languages of a State."
+            },
+            {
+                "title": "Article 346",
+                "details": "Official language for communication between one State and another or between a State and the Union."
+            },
+            {
+                "title": "Article 347",
+                "details": "Special provision relating to language spoken by a section of the population of a State."
+            },
+            {
+                "title": "Article 348",
+                "details": "Language to be used in the Supreme Court and in the High Courts and for Acts, Bills, etc."
+            },
+            {
+                "title": "Article 349",
+                "details": "Special procedure for enactment of certain laws relating to language."
+            },
+            {
+                "title": "Article 350",
+                "details": "Language to be used in representations for redress of grievances."
+            },
+            {
+                "title": "Article 350A",
+                "details": "Facilities for instruction in mother-tongue at the primary stage."
+            },
+            {
+                "title": "Article 350B",
+                "details": "Special Officer for linguistic minorities."
+            },
+            {
+                "title": "Article 351",
+                "details": "Directive for development of the Hindi language."
+            },
+            {
+                "title": "Article 352",
+                "details": "Proclamation of Emergency."
+            },
+            {
+                "title": "Article 353",
+                "details": "Effect of Proclamation of Emergency."
+            },
+            {
+                "title": "Article 354",
+                "details": "Application of provisions relating to distribution of revenues while a Proclamation of Emergency is in operation."
+            },
+            {
+                "title": "Article 355",
+                "details": "Duty of the Union to protect States against external aggression and internal disturbance."
+            },
+            {
+                "title": "Article 356",
+                "details": "Provisions in case of failure of constitutional machinery in States."
+            },
+            {
+                "title": "Article 357",
+                "details": "Exercise of legislative powers under Proclamation issued under article 356."
+            },
+            {
+                "title": "Article 358",
+                "details": "Suspension of provisions of article 19 during emergencies."
+            },
+            {
+                "title": "Article 359",
+                "details": "Suspension of the enforcement of the rights conferred by Part III during emergencies."
+            },
+            {
+                "title": "Article 359A",
+                "details": "[Repealed.]"
+            },
+            {
+                "title": "Article 360",
+                "details": "Provisions as to financial emergency."
+            },
+            {
+                "title": "Article 361",
+                "details": "Protection of President and Governors and Rajprakukhs."
+            },
+            {
+                "title": "Article 361A",
+                "details": "Protection of publication of proceedings of Parliament and State Legislatures."
+            },
+            {
+                "title": "Article 361B",
+                "details": "Disqualification for appointment on remunerative political post."
+            },
+            {
+                "title": "Article 362",
+                "details": "[Repealed.]"
+            },
+            {
+                "title": "Article 363",
+                "details": "Bar to interference by courts in disputes arising out of certain treaties, agreements, etc."
+            },
+            {
+                "title": "Article 363A",
+                "details": "Recognition granted to Rulers of Indian States to cease and privy purses to be abolished."
+            },
+            {
+                "title": "Article 364",
+                "details": "Special provisions as to major ports and aerodromes."
+            },
+            {
+                "title": "Article 365",
+                "details": "Effect of failure to comply with, or to give effect to, directions given by the Union."
+            },
+            {
+                "title": "Article 366",
+                "details": "Definitions."
+            },
+            {
+                "title": "Article 367",
+                "details": "Interpretation."
+            },
+            {
+                "title": "Article 368",
+                "details": "Power of Parliament to amend the Constitution and procedure therefor."
+            },
+            {
+                "title": "Article 369",
+                "details": "Temporary power to Parliament to make laws with respect to certain matters in the State List as if they were matters in the Concurrent List."
+            },
+            {
+                "title": "Article 370",
+                "details": "Temporary provisions with respect to the State of Jammu and Kashmir."
+            },
+            {
+                "title": "Article 371",
+                "details": "Special provision with respect to the States of Maharashtra and Gujarat."
+            },
+            {
+                "title": "Article 371A",
+                "details": "Special provision with respect to the State of Nagaland."
+            },
+            {
+                "title": "Article 371B",
+                "details": "Special provision with respect to the State of Assam."
+            },
+            {
+                "title": "Article 371C",
+                "details": "Special provision with respect to the State of Manipur."
+            },
+            {
+                "title": "Article 371D",
+                "details": "Special provisions with respect to the State of Andhra Pradesh."
+            },
+            {
+                "title": "Article 371E",
+                "details": "Establishment of Central University in Andhra Pradesh."
+            },
+            {
+                "title": "Article 371F",
+                "details": "Special provisions with respect to the State of Sikkim."
+            },
+            {
+                "title": "Article 371G",
+                "details": "Special provision with respect to the State of Mizoram."
+            },
+            {
+                "title": "Article 371H",
+                "details": "Special provision with respect to the State of Arunachal Pradesh."
+            },
+            {
+                "title": "Article 371I",
+                "details": "Special provision with respect to the State of Goa."
+            },
+            {
+                "title": "Article 371J",
+                "details": "Special provision with respect to the State of Karnataka."
+            },
+            {
+                "title": "Article 372",
+                "details": "Continuance in force of existing laws and their adaptation."
+            },
+            {
+                "title": "Article 372A",
+                "details": "Power of the President to adapt laws."
+            },
+            {
+                "title": "Article 373",
+                "details": "Power of President to make order in respect of persons under preventive detention in certain cases."
+            },
+            {
+                "title": "Article 374",
+                "details": "Provisions as to Judges of the Federal Court and proceedings pending in the Federal Court or before His Majesty in Council."
+            },
+            {
+                "title": "Article 375",
+                "details": "Courts, authorities and officers to continue to function subject to the provisions of the Constitution."
+            },
+            {
+                "title": "Article 376",
+                "details": "Provisions as to Judges of High Courts."
+            },
+            {
+                "title": "Article 377",
+                "details": "Provisions as to Comptroller and Auditor-General of India."
+            },
+            {
+                "title": "Article 378",
+                "details": "Provisions as to Public Service Commissions."
+            },
+            {
+                "title": "Article 378A",
+                "details": "Special provision as to the duration of Andhra Pradesh Legislative Assembly."
+            },
+            {
+                "title": "Article 379-391",
+                "details": "[Repealed.]"
+            },
+            {
+                "title": "Article 392",
+                "details": "Power of the President to remove difficulties."
+            },
+            {
+                "title": "Article 393",
+                "details": "Short title."
+            },
+            {
+                "title": "Article 394",
+                "details": "Commencement."
+            },
+            {
+                "title": "Article 394A",
+                "details": "Authoritative text in the Hindi language."
+            },
+            {
+                "title": "Article 395",
+                "details": "Repeals."
+            }
+
+        ];
+
+        // Display articles
+        const articlesContainer = document.getElementById('articles');
+        articles.forEach(article => {
+            const articleElement = document.createElement('div');
+            articleElement.className = 'article';
+            articleElement.innerHTML = `
+                <h2>${article.title}</h2>
+                <p>${article.details}</p>
+            `;
+            articlesContainer.appendChild(articleElement);
+        });
+    </script>
+</body>
+</html>

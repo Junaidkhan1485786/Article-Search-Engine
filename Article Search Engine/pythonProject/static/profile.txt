@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Constitution Explorer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        .sidebar, .content, .profile {
+            background: linear-gradient(45deg, #FF9933, #FFFFFF, #138808);
+            color: #000;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .sidebar {
+            width: 300px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        .sidebar.collapsed {
+            transform: translateX(-300px);
+        }
+        .content {
+            flex-grow: 1;
+            margin: 20px 20px 20px 340px;
+            text-align: center;
+        }
+        .content.expanded {
+            margin-left: 80px;
+        }
+        .profile {
+            width: 25%;
+            text-align: center;
+            margin: 20px;
+        }
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #FF9933;
+            transition: all 0.3s ease;
+        }
+        .profile img:hover {
+            transform: scale(1.1);
+        }
+        .profile h3 {
+            margin-top: 20px;
+            color: #000;
+        }
+        h2, h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #000;
+        }
+        .recent-search ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .recent-search li {
+            background: rgba(255, 255, 255, 0.2);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .recent-search li:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(5px);
+        }
+        .article-input {
+            margin: 30px 0;
+        }
+        .article-input input, .article-input button {
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+        }
+        .article-input input {
+            width: 60%;
+            margin-right: 10px;
+            border-radius: 25px;
+            padding-left: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .article-input input:focus {
+            box-shadow: 0 0 15px rgba(19, 136, 8, 0.3);
+        }
+        .article-input button {
+            background-color: #FF9933;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .article-input button:hover {
+            background-color: #e68a2e;
+            transform: translateY(-2px);
+        }
+        #toggle-sidebar {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            z-index: 1001;
+            background-color: #FF9933;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+        #toggle-sidebar:hover {
+            background-color: #e68a2e;
+        }
+        #toggle-sidebar .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 20px;
+            height: 15px;
+            margin-right: 10px;
+        }
+        #toggle-sidebar .menu-icon span {
+            height: 2px;
+            width: 100%;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        .user-info {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .user-info h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+        .user-info p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        .sidebar-content {
+            margin-top: 60px;
+        }
+        .constitution-facts {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .constitution-facts p {
+            font-size: 0.9em;
+            margin: 5px 0;
+        }
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        .search-result {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .search-result h3 {
+            color: #000;
+        }
+        .search-result p {
+            margin: 10px 0;
+        }
+        .constitution-quote {
+            font-style: italic;
+            color: #000;
+            text-align: center;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        #search-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggle-sidebar">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <span class="emoji">🇮🇳</span> MENU
+    </button>
+    <div class="sidebar">
+        <div class="sidebar-content">
+            <div class="user-info">
+                <h3 id="user-name">Rajesh Kumar</h3>
+                <p id="user-email">rajesh.kumar@example.com</p>
+            </div>
+            <div class="recent-search">
+                <h3><span class="emoji">🔍</span> Top searches </h3>
+                <ul id="recent-search-list">
+                    <li onclick="showInfo('history')">
+                        <span class="emoji">📜</span> History of Indian Constitution
+                        <br><small>(भारतीय संविधान का इतिहास)</small>
+                    </li>
+                    <li onclick="showInfo('fundamental-rights')">
+                        <span class="emoji">⚖️</span> Fundamental Rights
+                        <br><small>(मौलिक अधिकार)</small>
+                    </li>
+                    <li onclick="showInfo('dpsp')">
+                        <span class="emoji">🏛️</span> Directive Principles of State Policy
+                        <br><small>(राज्य के नीति निर्देशक तत्त्व)</small>
+                    </li>
+                </ul>
+            </div>
+            <div class="constitution-facts">
+                <h3><span class="emoji">📚</span> Constitution Facts</h3>
+                <p><span class="emoji">📅</span> Adopted on: 26 November 1949</p>
+                <p><span class="emoji">🖋️</span> Written by: Dr. B.R. Ambedkar</p>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <h1> Search Constitutional Articles 🔎</h1>
+        <div class="article-input">
+            <input type="text" id="article-name" placeholder="Enter article name or number">
+            <button onclick="searchArticle()">Search</button>
+        </div>
+        <div class="constitution-quote">
+            "A Constitution is not a mere lawyers' document, it is a vehicle of Life, and its spirit is always the spirit of Age." - B.R. Ambedkar
+            <br><br>
+            "India is not a nation, nor a country. It is a subcontinent of nationalities." - Muhammad Ali Jinnah
+        </div>
+        <div id="search-results"></div>
+    </div>
+    <div class="profile">
+        <img src="hugs.png">
+        <p><span class="emoji">🇮🇳📜</span> संविधान हमारी धरोहर</p>
+        <p><span class="emoji">🛡️🗳️</span> अधिकार हमारा हक</p>
+        <p><span class="emoji">⚖️✨</span> न्याय सबके लिए</p>
+        <p><span class="emoji">🇮🇳💪</span> एकता में शक्ति</p>
+        <p><span class="emoji">🤝⚖️</span> समानता हमारा अधिकार</p>
+        <p><span class="emoji">🗳️💪</span> लोकतंत्र की ताकत</p>
+        <p><span class="emoji">👫🤝</span> हम सब भारतीय</p>
+        <p><span class="emoji">📜✅</span> संविधान का पालन</p>
+        <img src="hugs.png">
+
+    </div>
+    <script>
+        function searchArticle() {
+            const articleName = document.getElementById('article-name').value;
+            const searchResults = document.getElementById('search-results');
+            searchResults.innerHTML = `<p><span class="emoji">🔎</span> Searching for article: "${articleName}"</p>`;
+            // Simulated search result
+            setTimeout(() => {
+                searchResults.innerHTML = `
+                    <div class="search-result">
+                        <h3>Search Results for "${articleName}"</h3>
+                        <p>1. ${articleName} in Indian Constitution</p>
+                        <p>2. Historical context of ${articleName}</p>
+                        <p>3. Amendments related to ${articleName}</p>
+                        <p>4. Judicial interpretations of ${articleName}</p>
+                        <p>5. Comparative analysis with other constitutions</p>
+                    </div>
+                `;
+            }, 1000);
+        }
+
+        function showInfo(topic) {
+            const searchResults = document.getElementById('search-results');
+            let content = '';
+            switch(topic) {
+                case 'history':
+                    content = `
+                        <h3>History of Indian Constitution</h3>
+                        <p>The Indian Constitution was drafted between 1947 and 1950, led by Dr. B.R. Ambedkar. It was adopted on November 26, 1949, and came into effect on January 26, 1950.</p>
+                    `;
+                    break;
+                case 'fundamental-rights':
+                    content = `
+                        <h3>Fundamental Rights</h3>
+                        <p>The Fundamental Rights are enshrined in Part III of the Indian Constitution. They guarantee civil liberties such as equality before law, freedom of speech, and protection against exploitation.</p>
+                    `;
+                    break;
+                case 'dpsp':
+                    content = `
+                        <h3>Directive Principles of State Policy</h3>
+                        <p>The Directive Principles, found in Part IV of the Constitution, are guidelines for the government to create a social and economic democracy through welfare state governance.</p>
+                    `;
+                    break;
+            }
+            searchResults.innerHTML = `<div class="search-result">${content}</div>`;
+        }
+
+        const toggleButton = document.getElementById('toggle-sidebar');
+        const sidebar = document.querySelector('.sidebar');
+        const content = document.querySelector('.content');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            content.classList.toggle('expanded');
+            toggleButton.classList.toggle('sidebar-collapsed');
+        });
+    </script>
+</body>
+</html>
